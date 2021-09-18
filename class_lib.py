@@ -35,7 +35,7 @@ class Setting_params:
     err_msg_loc_y=0
     err_msg_font_size=0
     err_msg_font_bold=1
-    
+
     err_size_x = 0
     err_size_y = 0
     err_loc_x = 0
@@ -56,9 +56,9 @@ class Setting_params:
     err_size_random_coeff2 = 2
 
     #examinee data
-    name = ""
+    name = "Anonymous"
     age = 20
-    sex = ""
+    sex = "f/m"
     sitting_loc_x = 0
     sitting_loc_y = 0
 
@@ -198,7 +198,7 @@ class Test_data:
         outdata = [self.time, self.name, self.age, self.sex, self.sitting_loc_x, self.sitting_loc_y]
         with open(self.output_filename, "a+") as outf :
             writer = csv.writer(outf)
-            writer.writerow(outdata)            
+            writer.writerow(outdata)
 
 
     def dump(self):
