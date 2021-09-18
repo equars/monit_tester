@@ -167,9 +167,7 @@ class Test_data:
 
         self.duration = random.gauss(params.alert_duration_time,params.alert_duration_random_coeff1)
 
-    def make_case1_condition(self, params, status):
-        pass
-
+        util.usr_make_condition(self,params,status) #ユーザ定義関数
 
     def start_timer(self):
         if not self.playtime:

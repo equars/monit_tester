@@ -23,3 +23,6 @@ def select_err(test_data, filename, message, correct):
     test_data.err_correct = correct[s]
 
 
+#====usrdefinition function of generation test condition====
+def usr_make_condition(test_data, params, status):
+    pass
