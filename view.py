@@ -115,6 +115,7 @@ def start_clicked(params,status):
 
         elif key_name == "n":
             err_cnv.place(x=-int(params.err_loc_x), y=-int(params.err_loc_y))
+            err_msg_cnv.place(x=-int(params.err_msg_loc_x), y=-int(params.err_msg_loc_y))
             test_data.make_condition(params, status)
 
         else:
