@@ -93,7 +93,7 @@ def start_clicked(params,status):
 
     test_data = cl.Test_data() #make test data
     test_data.make_condition(params, status)
-    
+
     #vals
     disp_real_ratio_x = float(params.mnt_disp_size_x)/float(params.mnt_size_x)
     disp_real_ratio_y = float(params.mnt_disp_size_y)/float(params.mnt_size_y)
@@ -145,7 +145,8 @@ def start_clicked(params,status):
 
     err_msg_cnv = tkinter.Canvas(test_window, bg="red", width=params.err_msg_size_x, height=params.err_msg_size_y)
     err_msg_cnv.place(x=-int(params.err_msg_loc_x), y=-int(params.err_msg_loc_y))
-    
+    err_msg_cnv.create_text((params.err_msg_size_x/2,params.err_msg_size_y/2),text=test_data.err_message, font=test_data.err_msg_font, fill="white", anchor=tkinter.CENTER)
+
     test_window.bind("<Key>", key_event)
     test_window.focus_set()
     test_window.mainloop()

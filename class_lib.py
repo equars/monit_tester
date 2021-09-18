@@ -97,7 +97,7 @@ class Setting_params:
         self.err_msg_size_y = int(inifile.get("settings", "err_msg_size_y"))
         self.err_msg_loc_x = int(inifile.get("settings", "err_msg_loc_x"))
         self.err_msg_loc_y = int(inifile.get("settings", "err_msg_loc_y"))
-        self.err_msg_font_size = int(inifile.get("settings", "err_msg_font_size"))
+        self.err_msg_font_size = str(inifile.get("settings", "err_msg_font_size"))
         self.err_msg_font_bold = int(inifile.get("settings", "err_msg_font_bold"))
 
         self.err_size_x = int(inifile.get("settings", "err_size_x"))
@@ -130,7 +130,7 @@ class Test_data:
     sitting_loc_y = 0
     error_width = 0
     error_height = 0
-    err_msg_font_size = 0
+    err_msg_font = ""
     err_msg_font_bold = 0
 
     err_filename = ""
@@ -159,7 +159,7 @@ class Test_data:
         self.sitting_loc_y = params.sitting_loc_y
         self.error_width = params.err_size_x
         self.error_height = params.err_size_y
-        self.err_msg_font_size = params.err_msg_font_size
+        self.err_msg_font = "courier "+params.err_msg_font_size
         self.err_msg_font_bold = params.err_msg_font_bold
         self.output_filename = params.output_filename
 
