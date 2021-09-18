@@ -3,7 +3,7 @@
 Normal Win 10 with normal python. I don't know details what computer I have.
 ## 使い方
 main.pyを起動すると、アプリが開始します。
-SETTINGボタンを押すと設定画面にうつります。詳細の設定はconfigure.iniで行ってください
+SETTINGボタンを押すと設定画面にうつります。詳細の設定はconfigure.iniで行ってください。
 STARTを押すと試験画面に移ります。sボタンで試験開始、エラーが発報されたら答えのボタンを押してください(任意設定可能)。
 ダウンロードしたままの状態では1,2,3の選択肢があります。
 qボタンで試験画面を閉じることができます。
