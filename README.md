@@ -1,4 +1,6 @@
-#　反応速度評価のためのアプリ
+# 反応速度評価のためのアプリ
+## Requirements
+Normal Win 10 with normal python. I don't know details what computer I have.
 ##　使い方
 main.pyを起動すると、アプリが開始します。
 SETTINGボタンを押すと設定画面にうつります。詳細の設定はconfigure.iniで行ってください
