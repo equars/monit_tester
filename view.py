@@ -6,7 +6,7 @@ import class_lib as cl
 import util
 
 def setting_clicked(params):
-
+    print("Setting window opening. Operate some on GUI.")
     #local func
     def save_params(params):
         params.name = str(ent_p1.get())
@@ -90,7 +90,7 @@ def setting_clicked(params):
     setting_window.mainloop()
 
 def start_clicked(params,status):
-
+    print("Test window opens. ->'s' as start, 'q' as quit.")
     test_data = cl.Test_data() #make test data
     test_data.make_condition(params, status)
 
@@ -108,12 +108,16 @@ def start_clicked(params,status):
     def key_event(event):
         key_name = event.keysym
         if key_name == "s":
+            print("'s' clicked, after duration time, error alerted.")
+            print("Duration time ->"+str(test_data.duration)+"sec")
             test_window.after(int(test_data.duration*1000), err_show)
 
         elif key_name == "q":
+            print("'q' clicked, quit test window.")
             test_window.destroy()
 
         elif key_name == "n":
+            print("'n' clicked, clear and make new test_data.->'s' as start, 'q' as quit.")
             err_cnv.place(x=-int(params.err_loc_x), y=-int(params.err_loc_y))
             err_msg_cnv.place(x=-int(params.err_msg_loc_x), y=-int(params.err_msg_loc_y))
             test_data.make_condition(params, status)
@@ -140,13 +144,13 @@ def start_clicked(params,status):
     canvas.create_image(params.mnt_loc_x, 0, image=monitor, anchor=tkinter.NW)
     canvas.pack()
 
-    err_cnv = tkinter.Canvas(test_window, bg="white", width=params.err_size_x, height=params.err_size_y)
+    err_cnv = tkinter.Canvas(test_window, bg="white", width=test_data.err_size_x, height=test_data.err_size_y)
     err_cnv.create_image(0, 0, image=err, anchor=tkinter.NW)
-    err_cnv.place(x=-int(params.err_loc_x), y=-int(params.err_loc_y))
+    err_cnv.place(x=-int(test_data.err_loc_x), y=-int(test_data.err_loc_y))
 
-    err_msg_cnv = tkinter.Canvas(test_window, bg="red", width=params.err_msg_size_x, height=params.err_msg_size_y)
-    err_msg_cnv.place(x=-int(params.err_msg_loc_x), y=-int(params.err_msg_loc_y))
-    err_msg_cnv.create_text((params.err_msg_size_x/2,params.err_msg_size_y/2),text=test_data.err_message, font=test_data.err_msg_font, fill="white", anchor=tkinter.CENTER)
+    err_msg_cnv = tkinter.Canvas(test_window, bg="red", width=params.err_msg_size_x, height=test_data.err_msg_size_y)
+    err_msg_cnv.place(x=-int(test_data.err_msg_loc_x), y=-int(test_data.err_msg_loc_y))
+    err_msg_cnv.create_text((test_data.err_msg_size_x/2,params.err_msg_size_y/2),text=test_data.err_message, font=test_data.err_msg_font, fill="white", anchor=tkinter.CENTER)
 
     test_window.bind("<Key>", key_event)
     test_window.focus_set()

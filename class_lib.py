@@ -43,7 +43,7 @@ class Setting_params:
 
     #range of test
     alert_duration_time = 5
-    alert_duration_random = 2 #1 as normal distribution, 2 as uniform distribution
+    alert_duration_random = 2 #1 as gauss distribution, 2 as uniform distribution
     alert_duration_random_coeff1 = 1
     alert_duration_random_coeff2 = 1
 
@@ -128,8 +128,16 @@ class Test_data:
     sex = ""
     sitting_loc_x = 0
     sitting_loc_y = 0
-    error_width = 0
-    error_height = 0
+    err_size_x = 0
+    err_size_y = 0
+    error_loc_x = 0
+    error_loc_y = 0
+
+    err_msg_size_x = 0
+    err_msg_size_y = 0
+    err_msg_loc_x = 0
+    err_msg_loc_y = 0
+
     err_msg_font = ""
     err_msg_font_bold = 0
 
@@ -157,8 +165,16 @@ class Test_data:
         self.sex = params.sex
         self.sitting_loc_x = params.sitting_loc_x
         self.sitting_loc_y = params.sitting_loc_y
-        self.error_width = params.err_size_x
-        self.error_height = params.err_size_y
+        self.err_size_x = params.err_size_x
+        self.err_size_y = params.err_size_y
+        self.err_loc_x = params.err_loc_x
+        self.err_loc_y = params.err_loc_y
+
+        self.err_msg_size_x = params.err_msg_size_x
+        self.err_msg_size_y = params.err_msg_size_y
+        self.err_msg_loc_x = params.err_msg_loc_x
+        self.err_msg_loc_y = params.err_msg_loc_y
+
         self.err_msg_font = "courier "+params.err_msg_font_size
         self.err_msg_font_bold = params.err_msg_font_bold
         self.output_filename = params.output_filename
@@ -205,8 +221,8 @@ class Test_data:
         print("sex "+str(self.sex))
         print("sitting_loc_x "+str(self.sitting_loc_x))
         print("sitting_loc_y "+str(self.sitting_loc_y))
-        print("error_width "+str(self.error_width))
-        print("error_height "+str(self.error_height))
+        print("err_size_x "+str(self.err_size_x))
+        print("err_size_y "+str(self.err_size_y))
         print("duration "+str(self.duration))
         print("time "+str(self.time))
         print("err_correct "+str(self.err_correct))
