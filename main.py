@@ -16,6 +16,7 @@ version = "v0.0"
 conf_file = "configure.ini"
 
 #read setting file(class definition of params is in README.md)
+status = cl.Status()
 params=cl.Setting_params()
 params.read(conf_file)
 
@@ -32,8 +33,8 @@ if __name__ == "__main__":
     title_comment = tkinter.Label(root, text="モニタ視認性試験を行います。SETTINGを確認して、STARTボタンを押してください。")
 
     #root buttons
-    button_setting = tkinter.Button(root, text="SETTING", command=lambda:view.setting_clicked(params))
-    button_start = tkinter.Button(root, text="START", command=lambda:view.start_clicked(params,1))
+    button_setting = tkinter.Button(root, text="SETTING", command=lambda:view.setting_clicked(status, params))
+    button_start = tkinter.Button(root, text="START", command=lambda:view.start_clicked(status, params))
     button_end = tkinter.Button(root, text="END", command=exit)
 
     #root plotting elements
@@ -47,4 +48,3 @@ if __name__ == "__main__":
 
     #root event loop(waiting)
     root.mainloop()
-

@@ -1,6 +1,7 @@
 import os
 import sys
 import csv
+import datetime
 import random
 import time
 import configparser
@@ -27,7 +28,7 @@ class Setting_params:
     #error image params(minimum)
     err_filename = []
     err_msg=[]
-    err_correct=[]
+    err_keys=[]
 
     err_msg_size_x=0
     err_msg_size_y=0
@@ -84,8 +85,8 @@ class Setting_params:
         self.err_filename = tmp_err_filename.split(",")
         tmp_err_msg = inifile.get("settings", "err_msg")
         self.err_msg = tmp_err_msg.split(",")
-        tmp_err_correct = inifile.get("settings", "err_correct")
-        self.err_correct = tmp_err_correct.split(",")
+        tmp_err_keys = inifile.get("settings", "err_keys")
+        self.err_keys = tmp_err_keys.split(",")
 
 
         self.alert_duration_time = float(inifile.get("settings", "alert_duration_time"))
@@ -144,6 +145,7 @@ class Test_data:
     err_filename = ""
     err_message = ""
     err_correct = ""
+    err_keys = []
 
     #result time
     duration = 0 # to show alert
@@ -170,6 +172,8 @@ class Test_data:
         self.err_loc_x = params.err_loc_x
         self.err_loc_y = params.err_loc_y
 
+        self.err_keys = params.err_keys
+
         self.err_msg_size_x = params.err_msg_size_x
         self.err_msg_size_y = params.err_msg_size_y
         self.err_msg_loc_x = params.err_msg_loc_x
@@ -179,7 +183,7 @@ class Test_data:
         self.err_msg_font_bold = params.err_msg_font_bold
         self.output_filename = params.output_filename
 
-        util.select_err(self, params.err_filename, params.err_msg, params.err_correct)
+        util.select_err(self, params.err_filename, params.err_msg, params.err_keys)
 
         self.duration = random.gauss(params.alert_duration_time,params.alert_duration_random_coeff1)
 
@@ -209,7 +213,7 @@ class Test_data:
             self.is_correct = 1
 
     def appenddata(self):
-        outdata = [self.time, self.name, self.age, self.sex, self.sitting_loc_x, self.sitting_loc_y]
+        outdata = [datetime.datetime.now(), self.is_correct, self.time, self.name, self.age, self.sex, self.err_msg_size_x, self.err_msg_size_y, self.err_size_x, self.err_size_y, self.sitting_loc_x, self.sitting_loc_y]
         with open(self.output_filename, "a+") as outf :
             writer = csv.writer(outf)
             writer.writerow(outdata)
@@ -227,3 +231,14 @@ class Test_data:
         print("time "+str(self.time))
         print("err_correct "+str(self.err_correct))
         print("is_correct "+str(self.is_correct))
+
+class Status:
+    num_test = 0
+    testing = False
+
+    def test_start(self):
+        self.testing = True
+
+    def test_end(self):
+        self.testing = False
+        self.num_test += 1
