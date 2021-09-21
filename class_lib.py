@@ -12,6 +12,7 @@ class Setting_params:
     #==variables==
     #basics
     monitor_brightness = -1
+    sound_volume = -1
 
     #test_window size
     test_window_size_x = 0
@@ -128,6 +129,7 @@ class Setting_params:
 class Test_data:
     #input params
     monitor_brightness=-1
+    sound_volume = -1
     name = ""
     age = 0
     sex = ""
@@ -167,6 +169,7 @@ class Test_data:
 
     def make_condition(self, params, status):
         self.monitor_brightness = params.monitor_brightness
+        self.sound_volume = params.sound_volume
         self.name = params.name
         self.age = params.age
         self.sex = params.sex
