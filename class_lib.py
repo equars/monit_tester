@@ -10,6 +10,9 @@ import util
 
 class Setting_params:
     #==variables==
+    #basics
+    monitor_brightness = -1
+
     #test_window size
     test_window_size_x = 0
     test_window_size_y = 0
@@ -124,6 +127,7 @@ class Setting_params:
 
 class Test_data:
     #input params
+    monitor_brightness=-1
     name = ""
     age = 0
     sex = ""
@@ -162,6 +166,7 @@ class Test_data:
         self.playtime=False
 
     def make_condition(self, params, status):
+        self.monitor_brightness = params.monitor_brightness
         self.name = params.name
         self.age = params.age
         self.sex = params.sex
@@ -213,7 +218,7 @@ class Test_data:
             self.is_correct = 1
 
     def appenddata(self):
-        outdata = [datetime.datetime.now(), self.is_correct, self.time, self.name, self.age, self.sex, self.err_msg_size_x, self.err_msg_size_y, self.err_size_x, self.err_size_y, self.sitting_loc_x, self.sitting_loc_y]
+        outdata = [datetime.datetime.now(), self.is_correct, self.time, self.name, self.age, self.sex, self.monitor_brightness, self.err_msg_size_x, self.err_msg_size_y, self.err_size_x, self.err_size_y, self.sitting_loc_x, self.sitting_loc_y]
         with open(self.output_filename, "a+") as outf :
             writer = csv.writer(outf)
             writer.writerow(outdata)

@@ -17,6 +17,7 @@ def setting_clicked(status, params):
         params.alert_duration_time = float(ent_p4.get())
         params.alert_duration_random = float(ent_p5.get())
         params.alert_duration_random_coeff1 = float(ent_p6.get())
+        params.monitor_brightness = float(ent_p7.get())
 
     #vals
     setting_window_width = 600
@@ -80,6 +81,13 @@ def setting_clicked(status, params):
     ent_p6 = tkinter.Entry(setting_window, width=entry_width)
     ent_p6.insert(0, params.alert_duration_random_coeff1)
     ent_p6.place(x=box_base_x+entry_diff, y=box_base_y)
+    box_base_y+=box_height
+
+    lbl_p7 = tkinter.Label(setting_window, text="monitor_brightness")
+    lbl_p7.place(x=box_base_x, y=box_base_y)
+    ent_p7 = tkinter.Entry(setting_window, width=entry_width)
+    ent_p7.insert(0, params.monitor_brightness)
+    ent_p7.place(x=box_base_x+entry_diff, y=box_base_y)
     box_base_y+=box_height
 
     button_save = tkinter.Button(setting_window, text="SAVE", command=lambda:save_params(params))

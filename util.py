@@ -30,4 +30,4 @@ def usr_make_condition(test_data, params, status):
     if test_data.err_correct == "1":
         test_data.err_msg_loc_x -= loc_diff_x
     elif test_data.err_correct == "3":
-        test_data.err_msg_loc_y += loc_diff_x
+        test_data.err_msg_loc_x += loc_diff_x
